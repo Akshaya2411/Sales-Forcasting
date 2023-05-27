@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold"style="color:#6e6ef6">
+                            Sign Up
+                        </h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="nuser">
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="nuser.controls['name'].dirty && nuser.hasError('required','name')" >
+                                    <span class="fa fa-user p-2"></span> 
+                                    <input type="text" placeholder="Name" formControlName="name"/>
+                                </div>
+                            </div>
+                            <small *ngIf="nuser.controls['name'].dirty && nuser.hasError('required','name')" class="text-danger">*Name is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="nuser.controls['mail'].dirty && nuser.hasError('required','mail')" >
+                                    <span class="fa fa-user p-2"></span> 
+                                    <input type="text" placeholder="Email ID" formControlName="mail"/>
+                                </div>
+                            </div>
+                            <small *ngIf="nuser.controls['mail'].dirty && nuser.hasError('required','mail')" class="text-danger">*Email ID is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="nuser.controls['username'].dirty && nuser.hasError('required','username')" >
+                                    <span class="fa fa-user p-2"></span> 
+                                    <input type="text" placeholder="Username" formControlName="username"/>
+                                </div>
+                            </div>
+                            <small *ngIf="nuser.controls['username'].dirty && nuser.hasError('required','username')" class="text-danger">*Username is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="nuser.controls['pwd'].dirty && nuser.hasError('required','pwd')" >
+                                    <span class="fa fa-lock p-2"></span> 
+                                    <input [type]="show ? 'text' : 'password'" placeholder="Password" formControlName="pwd"/>
+                                    <span (click)="password()" class="{{show ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></span>
+                                </div>
+                            <small  *ngIf="nuser.controls['pwd'].dirty && nuser.hasError('required','pwd')" class="text-danger">*Password is required</small>
+                            <button (click)="onSubmit()" [disabled]="nuser.invalid" type="submit" class="btn btn-primary btn-block mt-4 w-100" > Sign Up</button>
+                            <div class="text-center text-muted pt-4"style="color:#6e6ef6">Already have an account?<a routerLink="/login" style="text-decoration:none;color:#6e6ef6">Sign In</a></div>
+                    
+                            
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

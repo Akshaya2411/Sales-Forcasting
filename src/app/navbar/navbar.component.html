@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-md navbar-dark}">
+    <a class="navbar-brand" routerLink="/" style="color:#6e6ef6"><b> Digiverz</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto"  >
+        <ng-container *ngIf="this.auth.isAuthenticated();then authenticated;else notAuthenticated"></ng-container>
+        <ng-template #notAuthenticated>
+        <li class="nav-item"><a class="nav-link" routerLink="/register" style="color:#6e6ef6" >Sign Up</a></li>
+        <li class="nav-item"><a class="nav-link"  routerLink="/login" style="color:#6e6ef6">Sign In</a></li>
+    </ng-template>
+    </ul>
+    <ng-template #authenticated>
+        <ul class="navbar-nav mr-auto"  >
+        <li class="nav-item"><a class="nav-link" routerLink="/dashboard" style="color:#6e6ef6" >Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link"  style="color:#6e6ef6" (click)="logout()" >Logout</a></li>
+    </ul>
+</ng-template>

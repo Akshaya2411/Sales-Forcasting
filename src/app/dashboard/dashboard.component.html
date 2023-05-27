@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<div class="outer">
+<div class="row">
+            <div class="col">
+              <div class="row input-group input-group-sm mb-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold"style="color:#6e6ef6">
+                            Upload your file and choose the neccesary parameters
+                        </h3>
+                    </div>
+                    <div class="panel-body p-3">
+                  <form [formGroup]="f" (ngSubmit)="onsubmit($event)">
+                    <input type="file" multiple="false" (change)="onFileChange($event)" formControlName="file" /><br/>
+                  <p style="color:#6e6ef6;">Select target </p>
+                  <select class="form-select form-select-sm mb-3" name="target" id="target" formControlName="target" >
+                    <option value="Sales">Sales</option>
+                    </select>
+                  <p style="color:#6e6ef6;">Select Period </p>
+                  <select class="form-select form-select-sm mb-3" name="period" id="period" formControlName="period" >
+                    <option value="week">Week</option>
+                    <option value="month">Month</option>
+                    <option value="year">Year</option>
+                    <option value="day">Day</option>
+                  </select> 
+                    <p style="color:#6e6ef6;">Enter Range</p>
+                  <input type="number" placeholder="Enter a number" min="1" formControlName="range" />
+                  <button class="btn btn-primary btn-block mt-4 w-100" type="submit" >Submit</button>
+                  </form>
+            </div>
+            </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row input-group input-group-sm mb-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading" >
+                      <h3 class="pt-3 font-weight-bold"style="color:#6e6ef6">
+                       Result
+                    </h3>
+                    </div>
+                    <div class="panel-body p-3" *ngIf="hide_data; else load">
+                      <button class="btn btn-primary" (click)="download()">Download Predictions</button>
+                    <br/><br/>
+                    <p style="color:#6e6ef6;">MAPE: {{mape}}&nbsp; MAE: {{mae}}&nbsp; RMSE: {{rmse}}
+                    </p>
+
+                   <ng-image-slider #nav
+                   [images]="img"
+                   [infinite]="false"
+                   [autoSlide]="1"
+                   [imageSize]="{width: '100%', height: 170}"
+                   slideImage="1"></ng-image-slider>
+                   <br/>
+                   <button  class="btn btn-primary mt-4 w-100" [routerLink]="['/dashboard']" (click)="exit()">Exit</button>
+              </div>
+            <ng-template #load>
+              <div *ngIf="submit; else nodata" class="loader"></div> 
+             </ng-template>
+            </div>
+            <ng-template #nodata>
+              <p class="nodata" style="align-content: center;">No data found!</p>
+            </ng-template>
+              </div>
+            </div>
+            
+    </div>
+</div>

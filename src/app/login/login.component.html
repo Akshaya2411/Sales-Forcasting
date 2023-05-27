@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold" style="color:#6e6ef6" >
+                            Sign In
+                        </h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="user" >
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="user.controls['mail'].dirty && user.hasError('required','mail')" >
+                                    <span class="fa fa-user p-2"></span> 
+                                    <input type="text" placeholder="Email" formControlName="mail"/>
+                                </div>
+                            </div>
+                            <small *ngIf="user.controls['mail'].dirty && user.hasError('required','mail')" class="text-danger">*Email is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="user.controls['pwd'].dirty && user.hasError('required','pwd')" >
+                                    <span class="fa fa-lock p-2"></span> 
+                                    <input [type]="show ? 'text' : 'password'" placeholder="Password" formControlName="pwd"/>
+                                    <span (click)="password()" class="{{show ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></span>
+                                </div>
+                            </div>
+                            <small  *ngIf="user.controls['pwd'].dirty && user.hasError('required','pwd')" class="text-danger">*Password is required</small>
+                            <button (click)="onSubmit()" [disabled]="user.invalid" type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign In</button>
+                            <div class="text-center text-muted pt-4" style="color: #6e6ef6;">Don't have an account?<a routerLink="/register" style="text-decoration:none;color: #6e6ef6;"> Sign Up</a></div>
+                        </form>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

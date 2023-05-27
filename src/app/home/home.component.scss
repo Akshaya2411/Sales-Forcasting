@@ -1,0 +1,117 @@
+
+.logo-holder {
+    background:linear-gradient(to top,#c9c9ff 50%, #6e6ef6 90%) no-repeat;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto ;
+    padding-top: 12px;
+    padding-bottom: 24px;
+    -webkit-transform: translateZ(0);
+ }
+
+
+.bar {
+    position: relative;
+    height: 8px;
+    background: #6a6a6a;
+    width:  0%;
+    top: 0px;
+    left: 18px;
+    margin-top: 8px;
+    box-shadow: 0 0 3px rgba(192,192,192,0.9);
+    animation: fill 5s infinite alternate, colors 5s infinite alternate;
+}
+
+.bar.fill1 {
+  animation: fill-1 5s infinite alternate, colors 5s infinite alternate;
+}
+
+.bar.fill2 {
+   animation:  fill-2 5s infinite alternate, colors 5s infinite alternate;
+}
+
+
+.bar.fill3 {
+   animation:  fill-3 5s infinite alternate, colors 5s infinite alternate;
+}
+
+
+.bar.fill4 {
+   animation:  fill-4 5s infinite alternate, colors 5s infinite alternate;
+}
+
+.bar.fill5 {
+   animation:  fill-5 5s infinite alternate, colors 5s infinite alternate;
+}
+
+.bar.fill6 {
+   animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
+}
+
+
+
+@keyframes fill {
+  0%   { width: 0; }
+  33%  { width: 430px;}
+  66%  { width: 140px;}
+  100% { width: 105px; }
+}
+
+@keyframes fill-1 {
+  0%   { width: 110;}
+  33%  { width: 110px;}
+  66%  { width: 110px;}
+  100% { width: 1130px; }
+}
+
+@keyframes fill-2 {
+  0%   { width: 1110; }
+  33%  { width: 1490px;}
+  66%  { width: 170px;}
+  100% { width: 1136px; }
+}
+
+@keyframes fill-3 {
+  0%   { width: 1110; }
+  33%  { width: 1150px;}
+  66%  { width: 1124px;}
+  100% { width: 1119px; }
+}
+
+@keyframes fill-4 {
+  0%   { width: 1110; }
+  33%  { width: 1118px;}
+  66%  { width: 314px;}
+  100% { width: 1119px; }
+}
+
+@keyframes fill-5 {
+  0%   { width: 1110; }
+  33%  { width: 1130px;}
+  66%  { width: 1110px;}
+  100% { width: 1148px; }
+}
+
+
+@keyframes fill-6 {
+  0%   { width: 0; }
+  33%  { width: 148px;}
+  66%  { width: 122px;}
+  100% { width: 1140px; }
+}
+
+@keyframes colors {
+  0% { background-color:white;}
+  50% { background-color:antiquewhite;}
+  100% { background-color: whitesmoke;}
+}
+.container{
+  width: fit-content;
+  box-shadow: 20px 20px 80px rgb(192,192,192);
+  padding: 10px;
+  margin: auto;
+  border-radius: 12px;
+  background: white;
+}
+
